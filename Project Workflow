@@ -1,56 +1,46 @@
-### E-commerce Product Categorization Project Workflow
-
+E-commerce Product Categorization Project Workflow
 This section provides a detailed description of the workflow followed to develop the e-commerce product categorization model.
 
-#### 1. Problem Understanding and Dataset Overview
+1. Problem Understanding and Dataset Overview
+Objective: Categorize e-commerce products into their respective categories based on product descriptions and other numerical features.
+Datasets:
+Training Dataset: 15,000 records with 15 features including the target variable product_category_tree.
+Test Dataset: ~2,500 records with 14 features (excluding the target).
 
-- **Objective**: Categorize e-commerce products into their respective categories based on product descriptions and other numerical features.
-- **Datasets**:
-  - **Training Dataset**: 15,000 records with 15 features including the target variable `product_category_tree`.
-  - **Test Dataset**: ~2,500 records with 14 features (excluding the target).
+2. Data Loading and Initial Exploration
+Load data into pandas DataFrames.
+Perform initial exploration to understand data structure and check for missing values.
 
-#### 2. Data Loading and Initial Exploration
+3. Data Preprocessing
+Handling Missing Values: Fill missing values in the description column.
+Feature Extraction:
+Text Features: Transform product descriptions using TF-IDF vectorization.
+Numerical Features: Scale numerical features for uniformity.
 
-- Load data into pandas DataFrames.
-- Perform initial exploration to understand data structure and check for missing values.
+4. Feature Combination
+Combine transformed text features and scaled numerical features into a single feature matrix.
 
-#### 3. Data Preprocessing
+5. Model Training
+Train-Test Split: Split the combined feature matrix and target variable into training and validation sets.
+Model Selection: Select LightGBM as the primary model for classification.
+Model Training: Train the LightGBM model on the training set.
 
-- **Handling Missing Values**: Fill missing values in the `description` column.
-- **Feature Extraction**:
-  - **Text Features**: Transform product descriptions using TF-IDF vectorization.
-  - **Numerical Features**: Scale numerical features for uniformity.
+6. Model Evaluation
+Validation: Evaluate the model's performance on the validation set using accuracy and classification report.
+Confusion Matrix: Generate and visualize confusion matrices to understand model performance.
 
-#### 4. Feature Combination
+7. Hyperparameter Tuning
+Perform hyperparameter tuning using GridSearchCV to optimize model parameters and improve performance.
 
-- Combine transformed text features and scaled numerical features into a single feature matrix.
+8. Test Data Prediction
+Process the test data using the same preprocessing steps applied to the training data.
+Use the trained model to predict product categories for the test data.
+Save the predictions to a CSV file for submission.
 
-#### 5. Model Training
-
-- **Train-Test Split**: Split the combined feature matrix and target variable into training and validation sets.
-- **Model Selection**: Select LightGBM as the primary model for classification.
-- **Model Training**: Train the LightGBM model on the training set.
-
-#### 6. Model Evaluation
-
-- **Validation**: Evaluate the model's performance on the validation set using accuracy and classification report.
-- **Confusion Matrix**: Generate and visualize confusion matrices to understand model performance.
-
-#### 7. Hyperparameter Tuning
-
-- Perform hyperparameter tuning using GridSearchCV to optimize model parameters and improve performance.
-
-#### 8. Test Data Prediction
-
-- Process the test data using the same preprocessing steps applied to the training data.
-- Use the trained model to predict product categories for the test data.
-- Save the predictions to a CSV file for submission.
-
-#### 9. Documentation and Reporting
-
-- **Code Documentation**: Document each code block, describing the purpose and rationale behind the decisions.
-- **Results Analysis**: Compare model performance on both training and test datasets.
-- **Comprehensive Report**: Prepare a detailed report and presentation covering the entire project workflow, including lessons learned.
-- **Submission**: Submit the Jupyter Notebook, test data output, presentation, video walkthrough, and GitHub link with all deliverables. Optionally, create a Streamlit app for showcasing the model.
+9. Documentation and Reporting
+Code Documentation: Document each code block, describing the purpose and rationale behind the decisions.
+Results Analysis: Compare model performance on both training and test datasets.
+Comprehensive Report: Prepare a detailed report and presentation covering the entire project workflow, including lessons learned.
+Submission: Submit the Jupyter Notebook, test data output, presentation, video walkthrough, and GitHub link with all deliverables. Optionally, create a Streamlit app for showcasing the model.
 
 This workflow ensures a systematic approach to developing an accurate and efficient e-commerce product categorization model, leveraging both text and numerical features for robust performance.
